@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+    <h2>Active Listings</h2>
+    {%for title in titles%}
+        <div class="group_active">
+            <ul class="act_list">
+                <li>
+                    <h5><a href="{% url 'detail_list' title%}"> {{title}} </a></h5>
+                    <br>
+                    {{title.description}}
+                    <br>
+                    <img class="image_active" src="{{title.image_url}}" alt="{{title}}image">
+                </li>
+            </ul>
+        </div>
+
+
+    {%endfor%}
+{% endblock %}

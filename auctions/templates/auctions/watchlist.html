@@ -1,0 +1,16 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Your Watchlist</h2>
+    {% for title in watchlist %}
+        <ul>
+            <li>
+                <a href="{% url 'detail_list' title=title.title %}">{{ title }}</a>
+                <form method="post" action="{% url 'delete_watchlist' listing_id=title.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

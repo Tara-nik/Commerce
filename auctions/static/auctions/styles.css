@@ -1,0 +1,158 @@
+body {
+    background-color: #dde6f9;
+    padding: 7%;
+    
+}
+
+form {
+    border: solid 1px paleturquoise;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.user {
+    text-align:center;
+}
+
+.act_list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    list-style: none;
+}
+
+.group_active {
+    border: solid 2px rgb(133, 159, 227);
+    width: 30%;
+    background-color: #c1d2f7;
+    border-radius: 5px;
+    padding: 15px;
+    
+
+}
+.image_active {
+    width: 100%;
+    
+    padding: 10px;
+}
+.c_list {
+    margin-top: 30px;
+    border: solid 2px rgb(133, 159, 227);
+    width: 40%;
+    height: 20%;
+    background-color: #c1d2f7;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.d-container{
+    display: flex;
+
+}
+
+.d_img {
+    text-align: center;
+    padding-left: 20%;
+    padding-top: 20px;
+    width: 60%;
+ 
+    
+}
+
+.c_img {
+    width: 100%;
+    padding-top: 15px;
+}
+
+.d_text {
+    padding-left:5%;
+    text-align: left; 
+    
+    margin-bottom: 20px;
+}
+.comment {
+    border: #3803e6 solid 2px;
+    box-sizing: border-box;
+}
+
+
+a:hover {
+    color: hotpink;
+  }
+h1 {
+    color:  #3803e6;
+    text-align: center;
+    font-weight: bolder;
+    font-family: sans-serif;
+    font-stretch: ultra-condensed;
+    font-size: 60px;
+}
+h2 {
+    color: #3803e6;
+}
+
+/* Navigation styles */
+.nav {
+    border: solid 2px rgb(133, 159, 227);
+    border-radius: 10px;
+    background-color: #c1d2f7;
+    padding: 10px;
+}
+
+
+
+.nav-item {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.nav-link {
+    color: #3803e6;
+    text-decoration: none;
+    font-family:Arial, sans-serif;
+    font-size:larger;
+    text-shadow: #7ba7d4 10px;
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* User info styles */
+div {
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    width: 50%;
+    
+}
+.detail_title {
+    text-align: left;
+
+    margin: left 20px;
+}
+
+
+button {
+    width: 270px;
+    height: 55px;
+    background-color: rgb(246, 185, 59);
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+button:hover {
+    background-color: rgb(230, 116, 241);
+    
+}
+
+p {
+    font-family:sans-serif;
+    font-size:25px;
+}

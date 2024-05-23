@@ -1,0 +1,12 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Auction Not Closed Yet</h2>
+    <p>The auction has not yet reached its closing time. Please check back later.</p>
+    <form method="post" action="{% url 'bid' listing.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ bid_form.as_p }}
+        <button type="submit">Place Bid</button>
+    </form>
+{% endblock %}

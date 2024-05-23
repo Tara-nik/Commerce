@@ -1,0 +1,20 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Comment</h2>
+
+    {% if user.is_authenticated %}
+        <div class="detail_title">
+            <h1>{{ listing.title }}</h1>
+        </div>
+        <p>{{ listing.description }}</p>
+
+        <form method="post" action="{% url 'comment' title=listing.title %}">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit">submit</button>
+        </form>
+    {% else %}
+            <p>Please <a href="{% url 'login' %}">log in</a> to view this page.</p>
+    {% endif %}
+{% endblock %}

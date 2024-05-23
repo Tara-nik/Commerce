@@ -1,0 +1,78 @@
+{% extends "auctions/layout.html" %}
+
+{% load tz %}
+
+{% block body %}
+
+    {% if user.is_authenticated %}
+
+        {% if listing.available == True %}
+            {% if request.user == listing.created_by %}
+                <form method="post" action="{% url 'close' listing.id %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Close Auction</button>
+                </form>
+            {% endif %}
+        {% endif %}
+        <h1>{{ listing.title }}</h1>
+        <p class="d_text">{{ listing.description }}  <br><img class="d_img" src="{{ listing.image_url }}" alt="{{ listing.title }} Image"></p>
+        <p class="d_text">Start Price: ${{ listing.start_price }}</p>
+        <p class="d_text">Current Price: ${{ listing.current_price }}</p>
+        <p class="d_text">Date: {{listing.created_at }}</p>
+        <p class="d_text">Categories:{{auction_listing.categories}}
+        {% for category in categories %}
+            {{ category.category }}
+        {% endfor %}
+        </p>
+        <p class="d_text">User: {{ listing.created_by}}</p>
+        <p>comment :</p>
+         <ul class="comment">
+            {% for comment in comments %}
+                <li>
+                    <h6>{{ comment.user.username }} says:<br> {{ comment.text }}</h6>
+                </li>
+            {% endfor %}
+        </ul>
+
+<!--        <div class="d-container">-->
+
+<!--            <div class="d_img">-->
+<!--                <img src="{{ listing.image_url }}" alt="{{ listing.title }} Image">-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+        {% if user.is_authenticated %}
+
+            <button class="nav-link"><a href="{% url 'comment' title=title %}">Comment</a></button>
+
+        {% endif %}
+
+        {% if listing.available == False %}
+            <h4> This auction is closed </h4>
+            <h4> Winner : {{listing.winner}} </h4>
+            {% if user.is_authenticated and user == listing.winner %}
+                <h2 class="alert alert-success" role="alert">You have won this auction</h2>
+            {% endif %}
+        {% else %}
+
+            <form method="post" action="{% url 'add_to_watchlist' listing.id %}">
+                {% csrf_token %}
+                <button class="nav-link" type="submit">Add to Watchlist</button>
+            </form>
+
+            <form method="post" action="{% url 'bid' listing.id %}">
+                {% csrf_token %}
+                <button class="nav-link" type="submit">Place Bid</button>
+            </form>
+
+        {% endif %}
+
+
+    {% else %}
+        <p>Please <a href="{% url 'login' %}">log in</a> to view this page.</p>
+
+    {% endif %}
+
+{% endblock %}

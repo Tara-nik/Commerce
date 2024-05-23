@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Closed Listing</h2>
+    <h3> {{closed_listing.title}} </h3>
+    {%for title in closed_listing%}
+        <ul>
+            <li>
+                <div class="listing_item_group">
+                    <h4> <a href="{% url 'detail_list' title %}"> {{title}} </a></h4>
+                    <p> {{closed_listing.description}} </p>
+                    <p>{{auction.current_price}}</p>
+                    <p>{{closed_listing.winner}}</p>
+                    <p>{{  bid.timestamp }}</p>
+
+                </div>
+            </li>
+        </ul>
+
+
+    {%endfor%}
+{% endblock %}
